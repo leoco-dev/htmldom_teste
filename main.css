@@ -5,9 +5,6 @@
     font-family: sans-serif;
 }
 
-body {
-}
-
 .container {
     margin: 80px auto;
     max-width: 640px;
@@ -58,7 +55,6 @@ button:hover {
     padding: 6px;
     background-color: #27ae60;
     color:#fff;
-    
     font-size: 14px;
     display: none;
 }
@@ -70,9 +66,3 @@ button:hover {
     font-size: 12px;
     display: none;
 }
-/* 
-input.error {
-    color:red;
-    border-color:red;
-    outline-color: red;
-} */

@@ -15,6 +15,7 @@ form.addEventListener('submit', function(e) {
         let containerMsgSucess = document.querySelector('.sucess-msg');
         containerMsgSucess.innerHTML = msgSucesso;
         containerMsgSucess.style.display = 'inline';
+        document.querySelector('.error-msg').style.display = 'none';
 
         valorMaior.value = "";
         valorMenor.value = "";
@@ -23,10 +24,9 @@ form.addEventListener('submit', function(e) {
         let containerMsgSucess = document.querySelector('.error-msg');
         containerMsgSucess.innerHTML = msgError;
         containerMsgSucess.style.display = 'inline';
+        document.querySelector('.sucess-msg').style.display = 'none';
 
         valorMaior.value = "";
         valorMenor.value = "";
     }
 })
-
-console.log(form);
