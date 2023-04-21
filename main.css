@@ -66,3 +66,11 @@ button:hover {
     font-size: 12px;
     display: none;
 }
+
+.similar-msg {
+    padding: 0px 0px 12px 4px;
+    color: red;
+    font-weight: 600;
+    font-size: 12px;
+    display: none;
+}
