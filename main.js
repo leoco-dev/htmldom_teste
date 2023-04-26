@@ -1,62 +1,58 @@
-const form = document.querySelector('#form-comparar');
+const form = document.querySelector('#form-comparar')
 
-const valorMenor = document.querySelector('#valor-menor');
-const valorMaior = document.querySelector('#valor-maior');
+const valorMenor = document.querySelector('#valor-menor')
+const valorMaior = document.querySelector('#valor-maior')
 
 form.addEventListener('submit', function(e) {
-    e.preventDefault();
+    e.preventDefault()
 
     limparResultado()
     comparaNumeroIgual()
-    comparaNumero()
+    comparaNumeroMaior()
+    comparaNumeroMenor()
+    limparValor()
 })
 
-function comparaNumeroIgual() {    
+function comparaNumeroIgual() {
+    const comparaNumeroIgual = parseInt(valorMaior.value) === parseInt(valorMenor.value)
+    const msgSimilar = `Ops, tente novamente! <b>${valorMenor.value}</b> e <b>${valorMaior.value}</b> são iguais.`
 
-    const comparaNumeroIgual = parseInt(valorMaior.value) == parseInt(valorMenor.value);
-    
-    const msgSimilar = `Não foi possível validar, os números: <b>${valorMenor.value}</b> e <b>${valorMaior.value}</b> são iguais.`;
+    if(comparaNumeroIgual) {        
+        let containerMsgSimilar = document.querySelector('.similar-msg')
+        containerMsgSimilar.innerHTML = msgSimilar
+        containerMsgSimilar.style.display = 'inline'
+    } 
+}
 
-    if(comparaNumeroIgual) {
-        
-        let containerMsgSimilar = document.querySelector('.similar-msg');
-        containerMsgSimilar.innerHTML = msgSimilar;
-        containerMsgSimilar.style.display = 'inline';
+function comparaNumeroMaior() {
+    const comparaNumero = parseInt(valorMaior.value) > parseInt(valorMenor.value)
+    const msgSucesso = `Está certo, muito bem! <b>${valorMenor.value}</b> é menor que <b>${valorMaior.value}</b>`
 
-        valorMaior.value = "";
-        valorMenor.value = "";
-
+    if (comparaNumero) {
+        let containerMsgSucess = document.querySelector('.sucess-msg')
+        containerMsgSucess.innerHTML = msgSucesso
+        containerMsgSucess.style.display = 'inline'
     }
 }
 
-function comparaNumero() {
-
-    const comparaNumero = parseInt(valorMaior.value) > parseInt(valorMenor.value);
-        
-    const msgSucesso = `Está certo, muito bem! <b>${valorMenor.value}</b> é menor que <b>${valorMaior.value}</b>`;
-    const msgError = `Ops, tente novamente! <b>${valorMenor.value} não </b> é menor que <b>${valorMaior.value}</b>`;
+function comparaNumeroMenor() {
+    const comparaNumero = parseInt(valorMaior.value) < parseInt(valorMenor.value)
+    const msgError = `Ops, tente novamente! <b>${valorMenor.value}</b> não é menor que <b>${valorMaior.value}</b>`
 
     if (comparaNumero) {
-        let containerMsgSucess = document.querySelector('.sucess-msg');
-        containerMsgSucess.innerHTML = msgSucesso;
-        containerMsgSucess.style.display = 'inline';
-
-        valorMaior.value = "";
-        valorMenor.value = "";
-
-    } else {
-        let containerMsgError = document.querySelector('.error-msg');
-        containerMsgError.innerHTML = msgError;
-        containerMsgError.style.display = 'inline';
-
-        valorMaior.value = "";
-        valorMenor.value = "";
+        let containerMsgError = document.querySelector('.error-msg')
+        containerMsgError.innerHTML = msgError
+        containerMsgError.style.display = 'inline'
     }
 }
 
 function limparResultado() {
-    
-    document.querySelector('.sucess-msg').style.display = 'none';
-    document.querySelector('.error-msg').style.display = 'none';
-    document.querySelector('.similar-msg').style.display = 'none';
+    document.querySelector('.sucess-msg').style.display = 'none'
+    document.querySelector('.error-msg').style.display = 'none'
+    document.querySelector('.similar-msg').style.display = 'none'
+}
+
+function limparValor() {
+        valorMaior.value = ""
+        valorMenor.value = ""
 }
